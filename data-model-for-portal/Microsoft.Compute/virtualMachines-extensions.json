@@ -1,0 +1,104 @@
+{
+    "resourceType": "virtualMachines/extensions",
+    "learnMore": {
+        "url": "https://docs.microsoft.com/en-us/cli/azure/vm/extension?view=azure-cli-latest"
+    },
+    "commands": [
+        {
+            "name": "az vm extension list",
+            "description": "List the extensions attached to a VM",
+            "confirmation": true,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/en-us/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list"
+                },
+                "arguments": [
+                    {
+                        "name": "[--resource-group]"
+                    },
+                    {
+                        "name": "[--vm-name]"
+                    },
+                    {
+                        "name": "[--subscription]"
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "List the extensions attached to a VM in your resource group",
+                    "arguments": [
+                        {
+                            "name": "--resource-group",
+                            "value": "[resources().resourceGroupName]"
+                        },
+                        {
+                            "name": "--vm-name",
+                            "value": "[resources().parent.name]"
+                        },
+                        {
+                            "name": "--subscription",
+                            "value": "[resources().subscriptionId]"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "az vm extension show",
+            "description": "Get the details of an extension attached to a VM",
+            "confirmation": true,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/en-us/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-show"
+                },
+                "arguments": [
+                    {
+                        "name": "[--expand]"
+                    },
+                    {
+                        "name": "[--ids]"
+                    },
+                    {
+                        "name": "[--instance-view]"
+                    },
+                    {
+                        "name": "[--name]"
+                    },
+                    {
+                        "name": "[--vm-name]"
+                    },
+                    {
+                        "name": "[--resource-group]"
+                    },
+                    {
+                        "name": "[--subscription]"
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "Get the details of an extension attached to a VM in your resource group",
+                    "arguments": [
+                        {
+                            "name": "--resource-group",
+                            "value": "[resources().resourceGroupName]"
+                        },
+                        {
+                            "name": "--vm-name",
+                            "value": "[resources().parent.name]"
+                        },
+                        {
+                            "name": "--name",
+                            "value": "[resources().name]"
+                        },
+                        {
+                            "name": "--subscription",
+                            "value": "[resources().subscriptionId]"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "resourceType": "virtualMachines",
+    "learnMore": {
+        "url": "https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest"
+    },
+    "commands": [
+        {
+            "name": "az vm start",
+            "description": "Start a stopped VM",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-start"
+                },
+                "arguments": [
+                    {
+                        "name": "[--ids]"
+                    },
+                    {
+                        "name": "[--name]"
+                    },
+                    {
+                        "name": "[--no-wait]"
+                    },
+                    {
+                        "name": "[--resource-group]"
+                    },
+                    {
+                        "name": "[--subscription]"
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "Start a VM in your resource group",
+                    "arguments": [
+                        {
+                            "name": "--resource-group",
+                            "value": "[resources().resourceGroupName]"
+                        },
+                        {
+                            "name": "--name",
+                            "value": "[resources().name]"
+                        },
+                        {
+                            "name": "--subscription",
+                            "value": "[resources().subscriptionId]"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "az vm stop",
+            "description": "Power off/stop a running VM",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-stop"
+                },
+                "arguments": [
+                    {
+                        "name": "[--ids]"
+                    },
+                    {
+                        "name": "[--name]"
+                    },
+                    {
+                        "name": "[--no-wait]"
+                    },
+                    {
+                        "name": "[--resource-group]"
+                    },
+                    {
+                        "name": "[--skip-shutdown]"
+                    },
+                    {
+                        "name": "[--subscription]"
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "Stop a VM in your resource group",
+                    "arguments": [
+                        {
+                            "name": "--resource-group",
+                            "value": "[resources().resourceGroupName]"
+                        },
+                        {
+                            "name": "--name",
+                            "value": "[resources().name]"
+                        },
+                        {
+                            "name": "--subscription",
+                            "value": "[resources().subscriptionId]"
+                        },
+                        {
+                            "name": "--skip-shutdown"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
