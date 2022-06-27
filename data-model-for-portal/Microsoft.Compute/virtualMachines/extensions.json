@@ -1,5 +1,6 @@
 {
     "resourceType": "virtualMachines/extensions",
+    "apiVersion": "2021_11_01",
     "learnMore": {
         "url": "https://docs.microsoft.com/en-us/cli/azure/vm/extension?view=azure-cli-latest"
     },
@@ -7,38 +8,37 @@
         {
             "name": "az vm extension list",
             "description": "List the extensions attached to a VM",
-            "confirmation": true,
+            "confirmation": false,
             "help": {
                 "learnMore": {
                     "url": "https://docs.microsoft.com/en-us/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list"
                 },
-                "arguments": [
+                "parameterSets": [
                     {
-                        "name": "[--resource-group]"
-                    },
-                    {
-                        "name": "[--vm-name]"
-                    },
-                    {
-                        "name": "[--subscription]"
+                       "parameters": [
+                          "[--resource-group]",
+                          "[--vm-name]",
+                          "[--subscription]"
+                       ]
                     }
                 ]
             },
             "examples": [
                 {
                     "description": "List the extensions attached to a VM in your resource group",
-                    "arguments": [
+                    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions",
+                    "parameters": [
                         {
                             "name": "--resource-group",
-                            "value": "[resources().resourceGroupName]"
+                            "value": "[path.resourceGroupName]"
                         },
                         {
                             "name": "--vm-name",
-                            "value": "[resources().parent.name]"
+                            "value": "[path.vmName]"
                         },
                         {
                             "name": "--subscription",
-                            "value": "[resources().subscriptionId]"
+                            "value": "[path.subscriptionId]"
                         }
                     ]
                 }
@@ -47,54 +47,46 @@
         {
             "name": "az vm extension show",
             "description": "Get the details of an extension attached to a VM",
-            "confirmation": true,
             "help": {
                 "learnMore": {
                     "url": "https://docs.microsoft.com/en-us/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-show"
                 },
-                "arguments": [
+                "parameterSets": [
                     {
-                        "name": "[--expand]"
-                    },
-                    {
-                        "name": "[--ids]"
-                    },
-                    {
-                        "name": "[--instance-view]"
-                    },
-                    {
-                        "name": "[--name]"
-                    },
-                    {
-                        "name": "[--vm-name]"
-                    },
-                    {
-                        "name": "[--resource-group]"
-                    },
-                    {
-                        "name": "[--subscription]"
+                       "name":"Optional, no need to display in Portal",
+                       "description":"Optional, no need to display in Portal",
+                       "parameters": [
+                          "[--expand]",
+                          "[--ids]",
+                          "[--instance-view]",
+                          "[--name]",
+                          "[--vm-name]",
+                          "[--resource-group]",
+                          "[--subscription]"
+                       ]
                     }
-                ]
+                 ]
             },
             "examples": [
                 {
                     "description": "Get the details of an extension attached to a VM in your resource group",
-                    "arguments": [
+                    "path": "/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName}",
+                    "parameters": [
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        },
                         {
                             "name": "--resource-group",
-                            "value": "[resources().resourceGroupName]"
+                            "value": "[path.resourceGroupName]"
                         },
                         {
                             "name": "--vm-name",
-                            "value": "[resources().parent.name]"
+                            "value": "[path.vmName]"
                         },
                         {
                             "name": "--name",
-                            "value": "[resources().name]"
-                        },
-                        {
-                            "name": "--subscription",
-                            "value": "[resources().subscriptionId]"
+                            "value": "[path.vmExtensionName]"
                         }
                     ]
                 }
