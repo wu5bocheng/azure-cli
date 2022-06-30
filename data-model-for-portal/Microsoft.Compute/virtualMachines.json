@@ -1,17 +1,18 @@
 {
     "resourceType": "virtualMachines",
-    "apiVersion": "2021_11_01",
+    "apiVersion": "2021-11-01",
     "learnMore": {
-        "url": "https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest"
+        "url": "https://docs.microsoft.com/cli/azure/vm"
     },
     "commands": [
         {
             "name": "az vm show",
             "description": "Get the details of a VM",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}",
             "confirmation": false,
             "help": {
                 "learnMore": {
-                    "url": "https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-show"
+                    "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-show"
                 },
                 "parameterSets":[
                     {
@@ -29,7 +30,6 @@
             "examples": [
                 {
                     "description": "Get the details of a VM in your resource group",
-                    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}",
                     "parameters": [
                         {
                             "name": "--resource-group",
@@ -50,9 +50,10 @@
         {
             "name": "az vm start",
             "description": "Start a stopped VM",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/start",
             "help": {
                 "learnMore": {
-                    "url": "https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-start"
+                    "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-start"
                 },
                 "parameterSets":[
                     {
@@ -69,7 +70,6 @@
             "examples": [
                 {
                     "description": "Start a VM in your resource group",
-                    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/start",
                     "parameters": [
                         {
                             "name": "--resource-group",
@@ -90,10 +90,11 @@
         {
             "name": "az vm stop",
             "description": "Power off/stop a running VM",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/powerOff",
             "confirmation": true,
             "help": {
                 "learnMore": {
-                    "url": "https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-stop"
+                    "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-stop"
                 },
                 "parameterSets":[
                     {
@@ -111,7 +112,6 @@
             "examples": [
                 {
                     "description": "Stop a VM in your resource group",
-                    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/powerOff",
                     "parameters": [
                         {
                             "name": "--resource-group",
@@ -119,6 +119,45 @@
                         },
                         {
                             "name": "--name",
+                            "value": "[path.vmName]"
+                        },
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "az vm extension list",
+            "description": "List the extensions attached to a VM",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-list"
+                },
+                "parameterSets": [
+                    {
+                       "parameters": [
+                          "[--resource-group]",
+                          "[--vm-name]",
+                          "[--subscription]"
+                       ]
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "List the extensions attached to a VM in your resource group",
+                    "parameters": [
+                        {
+                            "name": "--resource-group",
+                            "value": "[path.resourceGroupName]"
+                        },
+                        {
+                            "name": "--vm-name",
                             "value": "[path.vmName]"
                         },
                         {
