@@ -1,0 +1,49 @@
+{
+    "resourceType": "vaults",
+    "apiVersion": "2021-06-01-preview",
+    "learnMore": {
+        "url": "https://docs.microsoft.com/cli/azure/keyvault"
+    },
+    "commands": [
+        {
+            "name": "az keyvault show",
+            "description": "Show details of a Vault or HSM",
+            "path":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show"
+                },
+                "parameterSets":[
+                    {
+                        "parameters": [
+                            "[--hsm-name]",
+                            "[--name]",
+                            "[--resource-group]",
+                            "[--subscription]" 
+                        ]
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "Show details of a key vault in your resource group.",
+                    "parameters`": [
+                        {
+                            "name": "--resource-group",
+                            "value": "[path.resourceGroupName]"
+                        },
+                        {
+                            "name": "--name",
+                            "value": "[path.vaultName]"
+                        },
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
