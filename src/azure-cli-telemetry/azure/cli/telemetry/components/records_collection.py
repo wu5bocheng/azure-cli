@@ -27,8 +27,11 @@ class RecordsCollection:
     def next_send(self):
         return self._next_send
 
-    def snapshot_and_read(self):
-        """ Scan the telemetry cache files and move all the rotated files to a temp directory. """
+    def snapshot_and_read(self, include_all=False):
+        """ Scan the telemetry cache files and move all the rotated files to a temp directory.
+
+        :param include_all: Whether all cache including current cache file 'cache' should also be included.
+        """
         from azure.cli.telemetry.const import TELEMETRY_CACHE_DIR
 
         folder = os.path.join(self._config_dir, TELEMETRY_CACHE_DIR)
@@ -36,7 +39,10 @@ class RecordsCollection:
             return
 
         # sort the cache files base on their last modification time.
-        candidates = [(fn, os.stat(os.path.join(folder, fn))) for fn in os.listdir(folder) if fn != 'cache']
+        # If include_all is true, upload all cache files, i.e. 'cache', 'cache.1', 'cache.2', ...
+        # Otherwise, only upload rotated files,           i.e.          'cache.1', 'cache.2', ...
+        candidates = [(fn, os.stat(os.path.join(folder, fn))) for fn in os.listdir(folder) if
+                      include_all or fn != 'cache']
         candidates = [(fn, file_stat) for fn, file_stat in candidates if stat.S_ISREG(file_stat.st_mode)]
         candidates.sort(key=lambda pair: pair[1].st_mtime, reverse=True)  # move the newer cache file first
 

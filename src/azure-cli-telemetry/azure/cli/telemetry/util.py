@@ -8,8 +8,15 @@ import stat
 import logging
 import logging.handlers
 from datetime import datetime
+from enum import Enum
 
-from azure.cli.telemetry.const import TELEMETRY_NOTE_NAME, MANDATORY_WAIT_PERIOD
+from azure.cli.telemetry.const import TELEMETRY_NOTE_NAME, MIN_WAIT_PERIOD, MAX_WAIT_PERIOD
+
+
+class UploadMode(Enum):
+    NONE = 0
+    ROTATED = 1
+    ALL = 2
 
 
 def should_upload(config_dir):
@@ -24,21 +31,27 @@ def should_upload(config_dir):
     telemetry_note_path = os.path.join(config_dir, TELEMETRY_NOTE_NAME)
     if not os.path.exists(telemetry_note_path):
         logger.info('Positive: The %s does not exist.', telemetry_note_path)
-        return True
+        return UploadMode.ROTATED
 
     file_stat = os.stat(telemetry_note_path)
     if not stat.S_ISREG(file_stat.st_mode):
         logger.warning('Negative: The %s is not a regular file.', telemetry_note_path)
-        return False
+        return UploadMode.NONE
 
     modify_time = datetime.fromtimestamp(file_stat.st_mtime)
-    if datetime.now() - modify_time < MANDATORY_WAIT_PERIOD:
+    if datetime.now() - modify_time < MIN_WAIT_PERIOD:
         logger.warning('Negative: The %s was modified at %s, which in less than %f s',
-                       telemetry_note_path, modify_time, MANDATORY_WAIT_PERIOD.total_seconds())
-        return False
+                       telemetry_note_path, modify_time, MIN_WAIT_PERIOD.total_seconds())
+        return UploadMode.NONE
+
+    # It has been one day since last time we checked the cache, so we force all cache to be uploaded.
+    if datetime.now() - modify_time > MAX_WAIT_PERIOD:
+        logger.warning('Negative: The %s was modified at %s, which in greater than %f s',
+                       telemetry_note_path, modify_time, MAX_WAIT_PERIOD.total_seconds())
+        return UploadMode.ALL
 
     logger.info('Returns Positive.')
-    return True
+    return UploadMode.ROTATED
 
 
 def save_payload(config_dir, payload):

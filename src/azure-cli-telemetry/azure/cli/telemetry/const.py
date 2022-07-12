@@ -5,7 +5,9 @@
 
 from datetime import timedelta
 
-MANDATORY_WAIT_PERIOD = timedelta(minutes=10)
+MIN_WAIT_PERIOD = timedelta(minutes=10)
+MAX_WAIT_PERIOD = timedelta(hours=24)
+
 
 TELEMETRY_CACHE_DIR = 'telemetry'
 TELEMETRY_NOTE_NAME = 'telemetry.txt'

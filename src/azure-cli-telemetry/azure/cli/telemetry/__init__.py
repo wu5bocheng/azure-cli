@@ -48,6 +48,7 @@ def save(config_dir, payload):
     from azure.cli.telemetry.util import should_upload
     from azure.cli.telemetry.components.telemetry_logging import get_logger
 
+    # TODO: Update the logic for should_upload
     if save_payload(config_dir, payload) and should_upload(config_dir):
         logger = get_logger('main')
         logger.info('Begin creating telemetry upload process.')
@@ -56,7 +57,7 @@ def save(config_dir, payload):
 
 
 def main():
-    from azure.cli.telemetry.util import should_upload
+    from azure.cli.telemetry.util import should_upload, UploadMode
     from azure.cli.telemetry.components.telemetry_note import TelemetryNote
     from azure.cli.telemetry.components.records_collection import RecordsCollection
     from azure.cli.telemetry.components.telemetry_client import CliTelemetryClient
@@ -69,7 +70,8 @@ def main():
         logger = get_logger('main')
         logger.info('Attempt start. Configuration directory [%s].', sys.argv[1])
 
-        if not should_upload(config_dir):
+        upload_mode = should_upload(config_dir)
+        if upload_mode == UploadMode.NONE:
             logger.info('Exit early. The note file indicates it is not a suitable time to upload telemetry.')
             sys.exit(0)
 
@@ -78,7 +80,7 @@ def main():
                 telemetry_note.touch()
 
                 collection = RecordsCollection(telemetry_note.get_last_sent(), config_dir)
-                collection.snapshot_and_read()
+                collection.snapshot_and_read(upload_mode == UploadMode.ALL)
 
                 client = CliTelemetryClient()
                 for each in collection:
