@@ -8,7 +8,7 @@
         {
             "name": "az vm extension show",
             "description": "Get the details of an extension attached to a VM",
-            "path": "/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName}",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName}",
             "help": {
                 "learnMore": {
                     "url": "https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-show"
