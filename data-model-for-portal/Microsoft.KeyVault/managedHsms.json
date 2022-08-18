@@ -1,14 +1,14 @@
 {
-    "resourceType": "vaults",
-    "apiVersion": "2021-06-01-preview",
+    "resourceType": "managedHsms",
+    "apiVersion": "2021-04-01-preview",
     "learnMore": {
         "url": "https://docs.microsoft.com/cli/azure/keyvault"
     },
     "commands": [
         {
             "name": "az keyvault show",
-            "description": "Show details of a vault",
-            "path":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}",
+            "description": "Show details of a MHSM",
+            "path":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs/{name}",
             "confirmation": false,
             "help": {
                 "learnMore": {
@@ -17,7 +17,7 @@
                 "parameterSets":[
                     {
                         "parameters": [
-                            "--name",
+                            "--hsm-name",
                             "--resource-group",
                             "--subscription"
                         ]
@@ -26,15 +26,15 @@
             },
             "examples": [
                 {
-                    "description": "Show details of a key vault in your resource group.",
+                    "description": "Show details of a managed HSM in your resource group.",
                     "parameters`": [
                         {
                             "name": "--resource-group",
                             "value": "[path.resourceGroupName]"
                         },
                         {
-                            "name": "--name",
-                            "value": "[path.vaultName]"
+                            "name": "--hsm-name",
+                            "value": "[path.name]"
                         },
                         {
                             "name": "--subscription",
@@ -46,8 +46,8 @@
         },
         {
             "name": "az keyvault delete",
-            "description": "Delete a vault",
-            "path":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}",
+            "description": "Delete a MHSM",
+            "path":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs/{name}",
             "confirmation": false,
             "help": {
                 "learnMore": {
@@ -56,7 +56,7 @@
                 "parameterSets":[
                     {
                         "parameters": [
-                            "--name",
+                            "--hsm-name",
                             "--resource-group",
                             "--subscription",
                             "[--no-wait]"
@@ -66,15 +66,15 @@
             },
             "examples": [
                 {
-                    "description": "Delete specific vault.",
+                    "description": "Delete specific managed HSM.",
                     "parameters`": [
                         {
                             "name": "--resource-group",
                             "value": "[path.resourceGroupName]"
                         },
                         {
-                            "name": "--name",
-                            "value": "[path.vaultName]"
+                            "name": "--hsm-name",
+                            "value": "[path.name]"
                         },
                         {
                             "name": "--subscription",
@@ -86,8 +86,8 @@
         },
         {
             "name": "az keyvault list",
-            "description": "List vaults within specified resource group",
-            "path":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults",
+            "description": "List MHSMs within specified resource group",
+            "path":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs",
             "confirmation": false,
             "help": {
                 "learnMore": {
@@ -105,7 +105,7 @@
             },
             "examples": [
                 {
-                    "description": "List vaults in your resource group.",
+                    "description": "List managed HSMs in your resource group.",
                     "parameters`": [
                         {
                             "name": "--resource-group",
@@ -113,7 +113,7 @@
                         },
                         {
                             "name": "--resource-type",
-                            "value": "vault"
+                            "value": "hsm"
                         },
                         {
                             "name": "--subscription",
@@ -125,8 +125,8 @@
         },
         {
             "name": "az keyvault list-deleted",
-            "description": "List deleted vaults in a subscription",
-            "path":"/subscriptions/{subscriptionId}/providers/Microsoft.KeyVault/deletedVaults",
+            "description": "List deleted MHSMs in a subscription",
+            "path":"/subscriptions/{subscriptionId}/providers/Microsoft.KeyVault/deletedManagedHSMs",
             "confirmation": false,
             "help": {
                 "learnMore": {
@@ -147,7 +147,7 @@
                     "parameters`": [
                         {
                             "name": "--resource-type",
-                            "value": "vault"
+                            "value": "hsm"
                         },
                         {
                             "name": "--subscription",
@@ -159,8 +159,8 @@
         },
         {
             "name": "az keyvault show-deleted",
-            "description": "Show details of a deleted vault",
-            "path":"/subscriptions/{subscriptionId}/providers/Microsoft.KeyVault/locations/{location}/deletedVaults/{vaultName}",
+            "description": "Show details of a deleted MHSM",
+            "path":"/subscriptions/{subscriptionId}/providers/Microsoft.KeyVault/locations/{location}/deletedManagedHSMs/{name}",
             "confirmation": false,
             "help": {
                 "learnMore": {
@@ -169,7 +169,7 @@
                 "parameterSets":[
                     {
                         "parameters": [
-                            "--name",
+                            "--hsm-name",
                             "--location",
                             "--subscription"
                         ]
@@ -178,15 +178,15 @@
             },
             "examples": [
                 {
-                    "description": "Show details of a deleted vault.",
+                    "description": "Show details of a deleted managed HSM.",
                     "parameters`": [
                         {
                             "name": "--location",
                             "value": "[path.location]"
                         },
                         {
-                            "name": "--name",
-                            "value": "[path.vaultName]"
+                            "name": "--hsm-name",
+                            "value": "[path.name]"
                         },
                         {
                             "name": "--subscription",
@@ -198,8 +198,8 @@
         },
         {
             "name": "az keyvault purge",
-            "description": "Permanently delete a Vault",
-            "path":"/subscriptions/{subscriptionId}/providers/Microsoft.KeyVault/locations/{location}/deletedVaults/{vaultName}/purge",
+            "description": "Permanently delete a MHSM",
+            "path":"/subscriptions/{subscriptionId}/providers/Microsoft.KeyVault/locations/{location}/deletedManagedHSMs/{name}/purge",
             "confirmation": false,
             "help": {
                 "learnMore": {
@@ -208,7 +208,7 @@
                 "parameterSets":[
                     {
                         "parameters": [
-                            "--name",
+                            "--hsm-name",
                             "--location",
                             "--subscription",
                             "[--no-wait]"
@@ -218,54 +218,15 @@
             },
             "examples": [
                 {
-                    "description": "Permanently delete the specified Vault.",
+                    "description": "Permanently delete the specified managed HSM.",
                     "parameters`": [
                         {
                             "name": "--location",
                             "value": "[path.location]"
                         },
                         {
-                            "name": "--name",
-                            "value": "[path.vaultName]"
-                        },
-                        {
-                            "name": "--subscription",
-                            "value": "[path.subscriptionId]"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "az keyvault network-rule list",
-            "description": "List the network rules from the network ACLs for a Key Vault",
-            "path":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}",
-            "confirmation": false,
-            "help": {
-                "learnMore": {
-                    "url": "https://docs.microsoft.com/cli/azure/keyvault/network-rule#az-keyvault-network-rule-list"
-                },
-                "parameterSets":[
-                    {
-                        "parameters": [
-                            "--name",
-                            "--resource-group",
-                            "--subscription"
-                        ]
-                    }
-                ]
-            },
-            "examples": [
-                {
-                    "description": "List the network rules for the specified Key Vault.",
-                    "parameters`": [
-                        {
-                            "name": "--resource-group",
-                            "value": "[path.resourceGroupName]"
-                        },
-                        {
-                            "name": "--name",
-                            "value": "[path.vaultName]"
+                            "name": "--hsm-name",
+                            "value": "[path.name]"
                         },
                         {
                             "name": "--subscription",
@@ -277,8 +238,8 @@
         },
         {
             "name": "az keyvault private-link-resource list",
-            "description": "List the private link resources supported for a Key Vault",
-            "path":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/privateLinkResources",
+            "description": "List the private link resources supported for a MHSM",
+            "path":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs/{name}/privateLinkResources",
             "confirmation": false,
             "help": {
                 "learnMore": {
@@ -287,7 +248,7 @@
                 "parameterSets":[
                     {
                         "parameters": [
-                            "--vault-name",
+                            "--hsm-name",
                             "--resource-group",
                             "--subscription"
                         ]
@@ -296,15 +257,54 @@
             },
             "examples": [
                 {
-                    "description": "List the private link resources supported for the key vault.",
+                    "description": "List the private link resources supported for the managed HSM.",
                     "parameters`": [
                         {
                             "name": "--resource-group",
                             "value": "[path.resourceGroupName]"
                         },
                         {
-                            "name": "--vault-name",
-                            "value": "[path.vaultName]"
+                            "name": "--hsm-name",
+                            "value": "[path.name]"
+                        },
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "az keyvault private-endpoint-connection list",
+            "description": "List all private endpoint connections associated with a MHSM",
+            "path":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs/{name}/privateEndpointConnections",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/cli/azure/keyvault/private-endpoint-connection#az-keyvault-private-endpoint-connection-list"
+                },
+                "parameterSets":[
+                    {
+                        "parameters": [
+                            "--hsm-name",
+                            "--resource-group",
+                            "--subscription"
+                        ]
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "List all private endpoint connections associated with the specified managed HSM.",
+                    "parameters`": [
+                        {
+                            "name": "--resource-group",
+                            "value": "[path.resourceGroupName]"
+                        },
+                        {
+                            "name": "--hsm-name",
+                            "value": "[path.name]"
                         },
                         {
                             "name": "--subscription",
