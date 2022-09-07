@@ -15,6 +15,10 @@
 # The Python executable name, such as python3.9, python3
 %define python_cmd %{getenv:PYTHON_CMD}
 
+# Do not generate build_id links to prevent conflicts with other package.
+# See https://github.com/Azure/azure-cli/issues/23559
+%define _build_id_links none
+
 %define name           azure-cli
 %define release        1%{?dist}
 %define version        %{getenv:CLI_VERSION}
