@@ -27,7 +27,7 @@
             "examples": [
                 {
                     "description": "Show details of a managed HSM in your resource group.",
-                    "parameters`": [
+                    "parameters": [
                         {
                             "name": "--resource-group",
                             "value": "[path.resourceGroupName]"
@@ -67,7 +67,7 @@
             "examples": [
                 {
                     "description": "Delete specific managed HSM.",
-                    "parameters`": [
+                    "parameters": [
                         {
                             "name": "--resource-group",
                             "value": "[path.resourceGroupName]"
@@ -106,7 +106,7 @@
             "examples": [
                 {
                     "description": "List managed HSMs in your resource group.",
-                    "parameters`": [
+                    "parameters": [
                         {
                             "name": "--resource-group",
                             "value": "[path.resourceGroupName]"
@@ -144,7 +144,7 @@
             "examples": [
                 {
                     "description": "List deleted vaults in a subscription.",
-                    "parameters`": [
+                    "parameters": [
                         {
                             "name": "--resource-type",
                             "value": "hsm"
@@ -179,7 +179,7 @@
             "examples": [
                 {
                     "description": "Show details of a deleted managed HSM.",
-                    "parameters`": [
+                    "parameters": [
                         {
                             "name": "--location",
                             "value": "[path.location]"
@@ -219,7 +219,7 @@
             "examples": [
                 {
                     "description": "Permanently delete the specified managed HSM.",
-                    "parameters`": [
+                    "parameters": [
                         {
                             "name": "--location",
                             "value": "[path.location]"
@@ -258,7 +258,7 @@
             "examples": [
                 {
                     "description": "List the private link resources supported for the managed HSM.",
-                    "parameters`": [
+                    "parameters": [
                         {
                             "name": "--resource-group",
                             "value": "[path.resourceGroupName]"
@@ -297,7 +297,7 @@
             "examples": [
                 {
                     "description": "List all private endpoint connections associated with the specified managed HSM.",
-                    "parameters`": [
+                    "parameters": [
                         {
                             "name": "--resource-group",
                             "value": "[path.resourceGroupName]"
