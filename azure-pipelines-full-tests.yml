@@ -25,8 +25,8 @@ jobs:
     matrix:
       Python39:
         python.version: '3.9'
-      Python310:
-        python.version: '3.10'
+      Python311:
+        python.version: '3.11'
   steps:
   - template: .azure-pipelines/templates/automation_test.yml
     parameters:
@@ -43,8 +43,8 @@ jobs:
     matrix:
       Python39:
         python.version: '3.9'
-      Python310:
-        python.version: '3.10'
+      Python311:
+        python.version: '3.11'
   steps:
   - template: .azure-pipelines/templates/automation_test.yml
     parameters:
@@ -61,8 +61,8 @@ jobs:
     matrix:
       Python39:
         python.version: '3.9'
-      Python310:
-        python.version: '3.10'
+      Python311:
+        python.version: '3.11'
   steps:
   - template: .azure-pipelines/templates/automation_test.yml
     parameters:
@@ -103,7 +103,7 @@ jobs:
       instance_idx: '$(Instance_idx)'
       fullTest: true
 
-- job: AutomationFullTestPython310ProfileLatest
+- job: AutomationFullTestPython311ProfileLatest
   displayName: Automation Full Test Python310 Profile Latest
   timeoutInMinutes: 9999
   strategy:
@@ -130,7 +130,7 @@ jobs:
   steps:
   - template: .azure-pipelines/templates/automation_test.yml
     parameters:
-      pythonVersion: '3.10'
+      pythonVersion: '3.11'
       profile: 'latest'
       instance_cnt: '8'
       instance_idx: '$(Instance_idx)'
