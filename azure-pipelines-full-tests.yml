@@ -104,7 +104,7 @@ jobs:
       fullTest: true
 
 - job: AutomationFullTestPython311ProfileLatest
-  displayName: Automation Full Test Python310 Profile Latest
+  displayName: Automation Full Test Python311 Profile Latest
   timeoutInMinutes: 9999
   strategy:
     maxParallel: 8
