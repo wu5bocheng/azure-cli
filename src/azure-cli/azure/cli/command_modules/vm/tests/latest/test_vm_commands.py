@@ -8027,8 +8027,6 @@ class DiskBurstingTest(ScenarioTest):
         self.cmd('disk update -n {disk2} -g {rg} --performance-plus', checks=[
             self.check('creationData.performancePlus', True)
         ])
-    @ResourceGroupPreparer(name_prefix='cli_test_performance_plus_update_', location='eastus2euap')
-    def test_performance_plus_update(self, resource_group):
 class VMSSCreateDiskOptionTest(ScenarioTest):
 
     @ResourceGroupPreparer(name_prefix='cli_test_vmss_create_disk_iops_mbps_', location='eastus')
