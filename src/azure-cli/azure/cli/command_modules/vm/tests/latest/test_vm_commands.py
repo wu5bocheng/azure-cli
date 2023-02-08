@@ -615,7 +615,7 @@ class VMCustomImageTest(ScenarioTest):
 
         vm1 = self.cmd('vm create -g {rg} -n {vm1} --admin-username theuser --image centos --admin-password testPassword0 --authentication-type password --nsg-rule NONE').get_output_in_json()
         self.cmd('vm deallocate -g {rg} -n {vm1}')
-        self.cmd('vm generalize -g {rg} -n {vm1}')
+        self.cmd('vm generalize -g {rg} -n {vm1}')    
 
         self.cmd('image create -g {rg} -n {image1} --source {vm1}')
 
@@ -754,7 +754,7 @@ class VMRedeployTest(ScenarioTest):
     def test_vm_redeploy(self, resource_group):
         self.kwargs.update({
             'vm':'myvm'
-        })
+        })        
 
         self.cmd('vm create -g {rg} -n {vm} --image debian --use-unmanaged-disk --admin-username ubuntu --admin-password testPassword0 --authentication-type password --nsg-rule NONE')
         self.cmd('vm reapply -n {vm} -g {rg}')
@@ -777,7 +777,7 @@ class VMConvertTest(ScenarioTest):
 
         self.cmd('vm deallocate -n {vm} -g {rg}')
         self.cmd('vm convert -n {vm} -g {rg}')
-
+        
         converted = self.cmd('vm unmanaged-disk list --vm-name {vm} -g {rg}').get_output_in_json()
         self.assertTrue(converted[0]['managedDisk'])
         self.assertFalse(converted[0]['vhd'])
@@ -790,7 +790,7 @@ class TestSnapShotAccess(ScenarioTest):
         self.kwargs.update({
             'snapshot':'snapshot'
         })
-
+        
         self.cmd('snapshot create -n {snapshot} -g {rg} --size-gb 1', checks=self.check('diskState', 'Unattached'))
         self.cmd('snapshot grant-access --duration-in-seconds 600 -n {snapshot} -g {rg}')
         self.cmd('snapshot show -n {snapshot} -g {rg}', checks=self.check('diskState', 'ActiveSAS'))
@@ -1027,7 +1027,7 @@ class VMManagedDiskScenarioTest(ScenarioTest):
                      self.check('storageProfile.osDisk.caching', 'ReadWrite'),
                      self.check('storageProfile.dataDisks[0].caching', 'ReadOnly')
                  ])
-
+        
     @ResourceGroupPreparer(name_prefix='cli_test_vm_disk_from_restore_point_')
     def test_vm_disk_from_restore_point(self, resource_group):
         self.kwargs.update({
@@ -1041,7 +1041,7 @@ class VMManagedDiskScenarioTest(ScenarioTest):
             'disk_sku': 'Premium_LRS',
             'disk_size2': '2',
         })
-
+        
         # create a disk and update
         data_disk = self.cmd('disk create -g {rg} -n {disk_name1} --size-gb 1', checks=[
             self.check('sku.name', 'Premium_LRS'),
@@ -1052,13 +1052,13 @@ class VMManagedDiskScenarioTest(ScenarioTest):
         self.kwargs.update({
             'vm_id': vm['id'],
         })
-
+        
         # create a restore point collection of the vm
         collection = self.cmd('restore-point collection create -g {rg} --collection-name {collection_name} --source-id {vm_id}').get_output_in_json()
         self.kwargs.update({
             'collection_id': collection['id'],
         })
-
+        
         # create a restore point
         point = self.cmd('restore-point create -g {rg} -n {point_name} --collection-name {collection_name}').get_output_in_json()
         self.kwargs.update({
@@ -1066,7 +1066,7 @@ class VMManagedDiskScenarioTest(ScenarioTest):
         })
         disk_restore_point_id = self.cmd('restore-point show --resource-group {rg} --collection-name {collection_name} --name {point_name} --query \"sourceMetadata.storageProfile.dataDisks[0].diskRestorePoint.id\"').get_output_in_json()
         self.kwargs['disk_restore_point_id'] = disk_restore_point_id
-
+        
         # create disk from restore point
         self.cmd('disk create --resource-group {rg} --name {disk_name2} --sku {disk_sku} --size-gb {disk_size2} --source {disk_restore_point_id}',
                  checks=[
@@ -2545,7 +2545,7 @@ class VMSSExtensionImageTest(ScenarioTest):
             'location': 'eastus',
             'ver': '1.4.905.2'
         })
-
+        
         self.cmd('vmss extension image list -p {pub}', checks=[
             self.check('[0].publisher', self.kwargs['pub'])
         ])
@@ -5418,7 +5418,7 @@ class VMGenericUpdate(ScenarioTest):
 
 
 class VMGalleryImage(ScenarioTest):
-
+    
     @AllowLargeResponse()
     @ResourceGroupPreparer(location='westus')
     def test_shared_gallery(self, resource_group, resource_group_location):
@@ -6573,7 +6573,7 @@ class ProximityPlacementGroupScenarioTest(ScenarioTest):
         self.cmd('ppg list -g {rg}', checks=[
             self.check('length(@)', 2),
         ])
-
+        
         self.cmd('ppg update -n {ppg3} -g {rg} --set tags.foo="bar"', checks=[
             self.check('tags.foo', 'bar')
         ])
@@ -7736,7 +7736,7 @@ class DiskEncryptionSetTest(ScenarioTest):
         self.cmd('keyvault create --name {vault} -g {rg} --sku Premium --enable-purge-protection true --retention-days 7')
         vault_id = self.cmd('keyvault show -g {rg} -n {vault}').get_output_in_json()['id']
         kid = self.cmd('keyvault key create --vault-name {vault} --name {key} --ops wrapKey unwrapKey --kty RSA-HSM --size 3072 --exportable true --policy "{policy_path}"').get_output_in_json()['key']['kid']
-
+        
         self.kwargs.update({
             'vault_id': vault_id,
             'kid': kid
@@ -7773,7 +7773,7 @@ class DiskEncryptionSetTest(ScenarioTest):
         # test raise error if specified 'ConfidentialVM_DiskEncryptedWithCustomerKey' for --secure-type but didn't specify --secure-vm-disk-encryption-set
         with self.assertRaises(ArgumentUsageError):
             self.cmd('disk create -g {rg} -n {disk1} --hyper-v-generation V2 --security-type ConfidentialVM_DiskEncryptedWithCustomerKey --image-reference "{image}"')
-
+        
         # create disk with des name
         self.cmd('disk create -g {rg} -n {disk1} --security-type ConfidentialVM_DiskEncryptedWithCustomerKey --hyper-v-generation V2 --secure-vm-disk-encryption-set {des} --image-reference "{image}"', checks=[
             self.check_pattern('securityProfile.secureVmDiskEncryptionSetId', self.kwargs['des_pattern']),
@@ -8015,18 +8015,16 @@ class DiskBurstingTest(ScenarioTest):
             'disk1': self.create_random_name('disk1-', 10),
             'disk2': self.create_random_name('disk2-', 10)
         })
-
         self.cmd('disk create -n {disk1} -g {rg} --size-gb 530 --performance-plus', checks=[
             self.check('creationData.performancePlus', True)
         ])
-
         self.cmd('disk create -n {disk2} -g {rg} --size-gb 530', checks=[
             self.check('creationData.performancePlus', None)
         ])
-
         self.cmd('disk update -n {disk2} -g {rg} --performance-plus', checks=[
             self.check('creationData.performancePlus', True)
         ])
+
 class VMSSCreateDiskOptionTest(ScenarioTest):
 
     @ResourceGroupPreparer(name_prefix='cli_test_vmss_create_disk_iops_mbps_', location='eastus')
@@ -9448,7 +9446,7 @@ class VMVMSSAddApplicationTestScenario(ScenarioTest):
         message = 'usage error: --treat-deployment-as-failure only accepts a list of "true" or "false" values'
         with self.assertRaisesRegex(ArgumentUsageError, message):
             self.cmd('vm application set -g {rg} -n {vm} --app-version-ids {vid1} {vid2} --treat-deployment-as-failure hello world')
-
+        
         self.cmd('vm application set -g {rg} -n {vm} --app-version-ids {vid1} {vid2} --treat-deployment-as-failure true false', checks=[
             self.check('applicationProfile.galleryApplications[0].treatFailureAsDeploymentFailure', True),
             self.check('applicationProfile.galleryApplications[1].treatFailureAsDeploymentFailure', False)
