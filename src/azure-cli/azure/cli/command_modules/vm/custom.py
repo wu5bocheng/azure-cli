@@ -592,7 +592,9 @@ def update_managed_disk(cmd, resource_group_name, instance, size_gb=None, sku=No
     if data_access_auth_mode is not None:
         instance.data_access_auth_mode = data_access_auth_mode
     if performance_plus is not None:
-        instance.performance_plus = performance_plus
+        if instance.creation_data is None:
+            instance.creation_data = cmd.get_models('CreationData')
+        instance.creation_data.performance_plus = performance_plus
     return instance
 # endregion
 
