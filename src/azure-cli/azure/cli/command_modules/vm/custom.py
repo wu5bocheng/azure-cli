@@ -538,7 +538,7 @@ def update_managed_disk(cmd, resource_group_name, instance, size_gb=None, sku=No
                         disk_mbps_read_write=None, encryption_type=None, disk_encryption_set=None,
                         network_access_policy=None, disk_access=None, max_shares=None, disk_iops_read_only=None,
                         disk_mbps_read_only=None, enable_bursting=None, public_network_access=None,
-                        accelerated_network=None, architecture=None, data_access_auth_mode=None):
+                        accelerated_network=None, architecture=None, data_access_auth_mode=None, performance_plus=None):
     from msrestazure.tools import resource_id, is_valid_resource_id
     from azure.cli.core.commands.client_factory import get_subscription_id
 
@@ -591,7 +591,8 @@ def update_managed_disk(cmd, resource_group_name, instance, size_gb=None, sku=No
             instance.supported_capabilities.architecture = architecture
     if data_access_auth_mode is not None:
         instance.data_access_auth_mode = data_access_auth_mode
-
+    if performance_plus is not None:
+        instance.performance_plus = performance_plus
     return instance
 # endregion
 

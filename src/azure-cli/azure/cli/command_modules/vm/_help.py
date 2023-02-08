@@ -144,6 +144,9 @@ examples:
     text: |
         az disk update --name MyManagedDisk --resource-group MyResourceGroup --size-gb 20
     crafted: true
+  - name: Update a managed disk to increase the size limit for the disk of size 1TB and larger.
+    text: |
+        az disk update --name MyManagedDisk --resource-group MyResourceGroup --performance_plus --size-gb 1024
 """
 
 helps['disk wait'] = """
