@@ -8012,8 +8012,8 @@ class DiskBurstingTest(ScenarioTest):
     @ResourceGroupPreparer(name_prefix='cli_test_performance_plus_', location='eastus2euap')
     def test_performance_plus(self, resource_group):
         self.kwargs.update({
-            'disk1': self.create_random_name(prefix='disk1-', length=5),
-            'disk2': self.create_random_name(prefix='disk2-', length=5)
+            'disk1': self.create_random_name(prefix='disk', length=10),
+            'disk2': self.create_random_name(prefix='disk', length=10)
         })
         self.cmd('disk create -n {disk1} -g {rg} --size-gb 530 --performance-plus', checks=[
             self.check('creationData.performancePlus', True)
