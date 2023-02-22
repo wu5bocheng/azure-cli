@@ -14,7 +14,7 @@
                 "learnMore": {
                     "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-show"
                 },
-                "parameterSets":[
+                "parameterSets": [
                     {
                         "parameters": [
                             "[--ids]",
@@ -55,7 +55,7 @@
                 "learnMore": {
                     "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-start"
                 },
-                "parameterSets":[
+                "parameterSets": [
                     {
                         "parameters": [
                             "[--ids]",
@@ -96,7 +96,7 @@
                 "learnMore": {
                     "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-stop"
                 },
-                "parameterSets":[
+                "parameterSets": [
                     {
                         "parameters": [
                             "[--ids]",
@@ -130,79 +130,79 @@
             ]
         },
         {
-          "name": "az vm list",
-          "description": "List details of Virtual Machines.",
-          "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines",
-          "confirmation": false,
-          "help": {
-            "learnMore": {
-              "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-list"
-            },
-            "parameterSets": [
-              {
-                "parameters": [
-                  "[--resource-group]",
-                  "[--show-details]",
-                  "[--vmss]"
-                ]
-              }
-            ]
-          },
-          "examples": [
-            {
-              "description": "List all VMs by resource group.",
-              "parameters": [
-                {
-                  "name": "--subscription",
-                  "value": "[path.subscriptionId]"
+            "name": "az vm list",
+            "description": "List details of Virtual Machines.",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-list"
                 },
+                "parameterSets": [
+                    {
+                        "parameters": [
+                            "[--resource-group]",
+                            "[--show-details]",
+                            "[--vmss]"
+                        ]
+                    }
+                ]
+            },
+            "examples": [
                 {
-                  "name": "--resource-group",
-                  "value": "[path.resourceGroupName]"
+                    "description": "List all VMs by resource group.",
+                    "parameters": [
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        },
+                        {
+                            "name": "--resource-group",
+                            "value": "[path.resourceGroupName]"
+                        }
+                    ]
                 }
-              ]
-            }
-          ]
+            ]
         },
         {
-          "name": "az vm get-instance-view",
-          "description": "Get instance information about a VM.",
-          "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?$expand=instanceView",
-          "confirmation": false,
-          "help": {
-            "learnMore": {
-              "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-get-instance-view"
-            },
-            "parameterSets": [
-              {
-                "parameters": [
-                  "[--ids]",
-                  "[--name]",
-                  "[--resource-group]",
-                  "[--subscription]"
+            "name": "az vm get-instance-view",
+            "description": "Get instance information about a VM.",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?$expand=instanceView",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-get-instance-view"
+                },
+                "parameterSets": [
+                    {
+                        "parameters": [
+                            "[--ids]",
+                            "[--name]",
+                            "[--resource-group]",
+                            "[--subscription]"
+                        ]
+                    }
                 ]
-              }
-            ]
-          },
-          "examples": [
-            {
-              "description": "Use a resource group and name to get instance view information of a VM.",
-              "parameters": [
+            },
+            "examples": [
                 {
-                  "name": "--subscription",
-                  "value": "[path.subscriptionId]"
-                },
-                {
-                  "name": "--resource-group",
-                  "value": "[path.resourceGroupName]"
-                },
-                {
-                  "name": "--name",
-                  "value": "[path.vmName]"
+                    "description": "Use a resource group and name to get instance view information of a VM.",
+                    "parameters": [
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        },
+                        {
+                            "name": "--resource-group",
+                            "value": "[path.resourceGroupName]"
+                        },
+                        {
+                            "name": "--name",
+                            "value": "[path.vmName]"
+                        }
+                    ]
                 }
-              ]
-            }
-          ]
+            ]
         },
         {
             "name": "az vm extension list",
@@ -215,11 +215,11 @@
                 },
                 "parameterSets": [
                     {
-                       "parameters": [
-                          "[--resource-group]",
-                          "[--vm-name]",
-                          "[--subscription]"
-                       ]
+                        "parameters": [
+                            "[--resource-group]",
+                            "[--vm-name]",
+                            "[--subscription]"
+                        ]
                     }
                 ]
             },
