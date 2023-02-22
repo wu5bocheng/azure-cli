@@ -14,7 +14,7 @@
                 "learnMore": {
                     "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-show"
                 },
-                "parameterSets": [
+                "parameterSets":[
                     {
                         "parameters": [
                             "[--ids]",
@@ -22,7 +22,7 @@
                             "[--name]",
                             "[--resource-group]",
                             "[--show-details]",
-                            "[--subscription]"
+                            "[--subscription]" 
                         ]
                     }
                 ]
@@ -55,7 +55,7 @@
                 "learnMore": {
                     "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-start"
                 },
-                "parameterSets": [
+                "parameterSets":[
                     {
                         "parameters": [
                             "[--ids]",
@@ -96,7 +96,7 @@
                 "learnMore": {
                     "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-stop"
                 },
-                "parameterSets": [
+                "parameterSets":[
                     {
                         "parameters": [
                             "[--ids]",
@@ -130,81 +130,6 @@
             ]
         },
         {
-            "name": "az vm list",
-            "description": "List details of Virtual Machines.",
-            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines",
-            "confirmation": false,
-            "help": {
-                "learnMore": {
-                    "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-list"
-                },
-                "parameterSets": [
-                    {
-                        "parameters": [
-                            "[--resource-group]",
-                            "[--show-details]",
-                            "[--vmss]"
-                        ]
-                    }
-                ]
-            },
-            "examples": [
-                {
-                    "description": "List all VMs by resource group.",
-                    "parameters": [
-                        {
-                            "name": "--subscription",
-                            "value": "[path.subscriptionId]"
-                        },
-                        {
-                            "name": "--resource-group",
-                            "value": "[path.resourceGroupName]"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "az vm get-instance-view",
-            "description": "Get instance information about a VM.",
-            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?$expand=instanceView",
-            "confirmation": false,
-            "help": {
-                "learnMore": {
-                    "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-get-instance-view"
-                },
-                "parameterSets": [
-                    {
-                        "parameters": [
-                            "[--ids]",
-                            "[--name]",
-                            "[--resource-group]",
-                            "[--subscription]"
-                        ]
-                    }
-                ]
-            },
-            "examples": [
-                {
-                    "description": "Use a resource group and name to get instance view information of a VM.",
-                    "parameters": [
-                        {
-                            "name": "--subscription",
-                            "value": "[path.subscriptionId]"
-                        },
-                        {
-                            "name": "--resource-group",
-                            "value": "[path.resourceGroupName]"
-                        },
-                        {
-                            "name": "--name",
-                            "value": "[path.vmName]"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "name": "az vm extension list",
             "description": "List the extensions attached to a VM",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions",
@@ -215,11 +140,11 @@
                 },
                 "parameterSets": [
                     {
-                        "parameters": [
-                            "[--resource-group]",
-                            "[--vm-name]",
-                            "[--subscription]"
-                        ]
+                       "parameters": [
+                          "[--resource-group]",
+                          "[--vm-name]",
+                          "[--subscription]"
+                       ]
                     }
                 ]
             },
@@ -238,204 +163,6 @@
                         {
                             "name": "--subscription",
                             "value": "[path.subscriptionId]"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "az vm nic list",
-            "description": "List the NICs available on a VM.",
-            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}",
-            "confirmation": false,
-            "help": {
-                "learnMore": {
-                    "url": "https://docs.microsoft.com/cli/azure/vm/nic#az-vm-nic-list"
-                },
-                "parameterSets": [
-                    {
-                        "parameters": [
-                            "--resource-group",
-                            "--vm-name"
-                        ]
-                    }
-                ]
-            },
-            "examples": [
-                {
-                    "description": "List all of the NICs on a VM.",
-                    "parameters": [
-                        {
-                            "name": "--subscription",
-                            "value": "[path.subscriptionId]"
-                        },
-                        {
-                            "name": "--resource-group",
-                            "value": "[path.resourceGroupName]"
-                        },
-                        {
-                            "name": "--vm-name",
-                            "value": "[path.vmName]"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "az vm identity show",
-            "description": "Display VM's managed identity info.",
-            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}",
-            "confirmation": false,
-            "help": {
-                "learnMore": {
-                    "url": "https://docs.microsoft.com/cli/azure/vm/identity#az-vm-identity-show"
-                },
-                "parameterSets": [
-                    {
-                        "parameters": [
-                            "[--ids]",
-                            "[--name]",
-                            "[--resource-group]",
-                            "[--subscription]"
-                        ]
-                    }
-                ]
-            },
-            "examples": [
-                {
-                    "description": "display VM's managed identity info.",
-                    "parameters": [
-                        {
-                            "name": "--subscription",
-                            "value": "[path.subscriptionId]"
-                        },
-                        {
-                            "name": "--name",
-                            "value": "[path.vmName]"
-                        },
-                        {
-                            "name": "--resource-group",
-                            "value": "[path.resourceGroupName]"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "az vm aem verify",
-            "description": "Verify Azure Enhanced Monitoring Extensions configured correctly.",
-            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?$expand=instanceView",
-            "confirmation": false,
-            "help": {
-                "learnMore": {
-                    "url": "https://docs.microsoft.com/cli/azure/vm/aem#az-vm-aem-verify"
-                },
-                "parameterSets": [
-                    {
-                        "parameters": [
-                            "[--ids]",
-                            "[--name]",
-                            "[--resource-group]",
-                            "[--skip-storage-check]",
-                            "[--subscription]",
-                            "[--wait-time-in-minutes]"
-                        ]
-                    }
-                ]
-            },
-            "examples": [
-                {
-                    "description": "verify whether Azure Enhanced Monitoring Extensions of a VM is configured correctly.",
-                    "parameters": [
-                        {
-                            "name": "--subscription",
-                            "value": "[path.subscriptionId]"
-                        },
-                        {
-                            "name": "--name",
-                            "value": "[path.vmName]"
-                        },
-                        {
-                            "name": "--resource-group",
-                            "value": "[path.resourceGroupName]"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "az vm encryption show",
-            "description": "Show encryption status.",
-            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?$expand=instanceView",
-            "confirmation": false,
-            "help": {
-                "learnMore": {
-                    "url": "https://docs.microsoft.com/cli/azure/vm/encryption#az-vm-encryption-show"
-                },
-                "parameterSets": [
-                    {
-                        "parameters": [
-                            "[--ids]",
-                            "[--name]",
-                            "[--resource-group]",
-                            "[--subscription]"
-                        ]
-                    }
-                ]
-            },
-            "examples": [
-                {
-                    "description": "Show encryption status.",
-                    "parameters": [
-                        {
-                            "name": "--subscription",
-                            "value": "[path.subscriptionId]"
-                        },
-                        {
-                            "name": "--name",
-                            "value": "[path.vmName]"
-                        },
-                        {
-                            "name": "--resource-group",
-                            "value": "[path.resourceGroupName]"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "az vm unmanaged-disk list",
-            "description": "List unmanaged disks of a VM.",
-            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}",
-            "confirmation": false,
-            "help": {
-                "learnMore": {
-                    "url": "https://docs.microsoft.com/cli/azure/vm/unmanaged-disk#az-vm-unmanaged-disk-list"
-                },
-                "parameterSets": [
-                    {
-                        "parameters": [
-                            "--name",
-                            "--resource-group"
-                        ]
-                    }
-                ]
-            },
-            "examples": [
-                {
-                    "description": "List the unmanaged disks attached to a VM.",
-                    "parameters": [
-                        {
-                            "name": "--subscription",
-                            "value": "[path.subscriptionId]"
-                        },
-                        {
-                            "name": "--resource-group",
-                            "value": "[path.resourceGroupName]"
-                        },
-                        {
-                            "name": "--vm-name",
-                            "value": "[path.vmName]"
                         }
                     ]
                 }
