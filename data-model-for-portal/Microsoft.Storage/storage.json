@@ -37,6 +37,47 @@
                     ]
                 }
             ]
+        },
+        {
+            "name": "az storage account show",
+            "description": "Show storage account properties.",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-show"
+                },
+                "parameterSets": [
+                    {
+                        "parameters": [
+                            "[--expand]",
+                            "[--ids]",
+                            "[--name]",
+                            "[--resource-group]",
+                            "[--subscription]"
+                        ]
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "Show properties for a storage account using an account name and resource group.",
+                    "parameters": [
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        },
+                        {
+                            "name": "--resource-group",
+                            "value": "[path.resourceGroupName]"
+                        },
+                        {
+                            "name": "--name",
+                            "value": "[path.accountName]"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
