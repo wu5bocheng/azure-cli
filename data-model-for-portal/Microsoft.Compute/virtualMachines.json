@@ -165,6 +165,46 @@
           ]
         },
         {
+          "name": "az vm get-instance-view",
+          "description": "Get instance information about a VM.",
+          "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?$expand=instanceView",
+          "confirmation": false,
+          "help": {
+            "learnMore": {
+              "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-get-instance-view"
+            },
+            "parameterSets": [
+              {
+                "parameters": [
+                  "[--ids]",
+                  "[--name]",
+                  "[--resource-group]",
+                  "[--subscription]"
+                ]
+              }
+            ]
+          },
+          "examples": [
+            {
+              "description": "Use a resource group and name to get instance view information of a VM.",
+              "parameters": [
+                {
+                  "name": "--subscription",
+                  "value": "[path.subscriptionId]"
+                },
+                {
+                  "name": "--resource-group",
+                  "value": "[path.resourceGroupName]"
+                },
+                {
+                  "name": "--name",
+                  "value": "[path.vmName]"
+                }
+              ]
+            }
+          ]
+        },
+        {
             "name": "az vm extension list",
             "description": "List the extensions attached to a VM",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions",
