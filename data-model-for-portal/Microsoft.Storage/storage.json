@@ -164,6 +164,44 @@
                     ]
                 }
             ]
+        },
+        {
+            "name": "az storage account network-rule list",
+            "description": "List network rules.",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/cli/azure/storage/account/network-rule#az-storage-account-network-rule-list"
+                },
+                "parameterSets": [
+                    {
+                        "parameters": [
+                            "--account-name",
+                            "[--resource-group]"
+                        ]
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "List network rules.",
+                    "parameters": [
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        },
+                        {
+                            "name": "--account-name",
+                            "value": "[path.accountName]"
+                        },
+                        {
+                            "name": "--resource-group",
+                            "value": "[path.resourceGroupName]"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
