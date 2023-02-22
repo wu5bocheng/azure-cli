@@ -141,23 +141,14 @@
             "parameterSets": [
               {
                 "parameters": [
-                  "[--resource-group] [-g]",
-                  "[--show-details] [-d]",
+                  "[--resource-group]",
+                  "[--show-details]",
                   "[--vmss]"
                 ]
               }
             ]
           },
           "examples": [
-            {
-              "description": "List all VMs.",
-              "parameters": [
-                {
-                  "name": "--subscription",
-                  "value": "[path.subscriptionId]"
-                }
-              ]
-            },
             {
               "description": "List all VMs by resource group.",
               "parameters": [
@@ -168,23 +159,6 @@
                 {
                   "name": "--resource-group",
                   "value": "[path.resourceGroupName]"
-                }
-              ]
-            },
-            {
-              "description": "List all VMs by resource group with details.",
-              "parameters": [
-                {
-                  "name": "--subscription",
-                  "value": "[path.subscriptionId]"
-                },
-                {
-                  "name": "--resource-group",
-                  "value": "[path.resourceGroupName]"
-                },
-                {
-                  "name": "--show-details",
-                  "value": ""
                 }
               ]
             }
