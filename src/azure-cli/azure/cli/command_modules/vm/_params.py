@@ -201,7 +201,7 @@ def load_arguments(self, _):
         c.argument('support_hibernation', arg_type=get_three_state_flag(), help='Indicate the OS on a disk supports hibernation.', min_api='2020-12-01')
         c.argument('architecture', arg_type=get_enum_type(self.get_models('Architecture', operation_group='disks')), min_api='2021-12-01', help='CPU architecture.')
         c.argument('data_access_auth_mode', arg_type=get_enum_type(['AzureActiveDirectory', 'None']), min_api='2021-12-01', help='Specify the auth mode when exporting or uploading to a disk or snapshot.')
-        c.argument('performance_plus', arg_type=get_three_state_flag(), min_api='2022-07-02',help='Set this flag to true to get a boost on the performance target of the disk deployed. The feature can only be enabled and disabled while the Disk is detatched or the VM is shut down at this time.')
+        c.argument('performance_plus', arg_type=get_three_state_flag(), min_api='2022-07-02', help='Set this flag to true to get a boost on the performance target of the disk deployed. The feature can only be enabled and disabled while the Disk is detatched or the VM is shut down at this time.')
 
     # endregion
 
@@ -213,7 +213,7 @@ def load_arguments(self, _):
                    help='Create the disk for uploading blobs. Replaced by "--upload-type Upload"')
         c.argument('upload_type', arg_type=get_enum_type(['Upload', 'UploadWithSecurityData']), min_api='2018-09-30',
                    help="Create the disk for upload scenario. 'Upload' is for Standard disk only upload. 'UploadWithSecurityData' is for OS Disk upload along with VM Guest State. Please note the 'UploadWithSecurityData' is not valid for data disk upload, it only to be used for OS Disk upload at present.")
-        c.argument('performance_plus', arg_type=get_three_state_flag(), min_api='2022-07-02', help='Set this flag to true to get a boost on the performance target of the disk deployed. This flag can only be set on disk creation time and cannot be disabled after enabled')
+        c.argument('performance_plus', arg_type=get_three_state_flag(), min_api='2022-07-02', help='Set this flag to true to get a boost on the performance target of the disk deployed.')
     # endregion
 
     # region Snapshots
