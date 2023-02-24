@@ -256,7 +256,8 @@
                     {
                         "parameters": [
                             "--resource-group",
-                            "--vm-name"
+                            "--vm-name",
+                            "[--subscription]"
                         ]
                     }
                 ]
