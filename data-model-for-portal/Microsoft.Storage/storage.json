@@ -1,0 +1,210 @@
+{
+    "resourceType": "storage",
+    "apiVersion": "2022-09-01",
+    "learnMore": {
+        "url": "https://docs.microsoft.com/cli/azure/storage/account"
+    },
+    "commands": [
+        {
+            "name": "az storage account list",
+            "description": "List storage accounts.",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-list"
+                },
+                "parameterSets": [
+                    {
+                        "parameters": [
+                            "[--resource-group]",
+                            "[--subscription]"
+                        ]
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "List all storage accounts in a resource group.",
+                    "parameters": [
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        },
+                        {
+                            "name": "--resource-group",
+                            "value": "[path.resourceGroupName]"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "az storage account show",
+            "description": "Show storage account properties.",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-show"
+                },
+                "parameterSets": [
+                    {
+                        "parameters": [
+                            "[--expand]",
+                            "[--ids]",
+                            "[--name]",
+                            "[--resource-group]",
+                            "[--subscription]"
+                        ]
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "Show properties for a storage account using an account name and resource group.",
+                    "parameters": [
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        },
+                        {
+                            "name": "--resource-group",
+                            "value": "[path.resourceGroupName]"
+                        },
+                        {
+                            "name": "--name",
+                            "value": "[path.accountName]"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "az storage account keys list",
+            "description": "List the access keys or Kerberos keys (if active directory enabled) for a storage account.",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listKeys",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/cli/azure/storage/account/keys#az-storage-account-keys-list"
+                },
+                "parameterSets": [
+                    {
+                        "parameters": [
+                            "--account-name",
+                            "[--expand-key-type]",
+                            "[--resource-group]",
+                            "[--subscription]"
+                        ]
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "List the access keys for a storage account.",
+                    "parameters": [
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        },
+                        {
+                            "name": "--resource-group",
+                            "value": "[path.resourceGroupName]"
+                        },
+                        {
+                            "name": "--account-name",
+                            "value": "[path.accountName]"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "az storage account show-connection-string",
+            "description": "Get the connection string for a storage account.",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-show-connection-string"
+                },
+                "parameterSets": [
+                    {
+                        "parameters": [
+                            "[--blob-endpoint]",
+                            "[--file-endpoint]",
+                            "[--ids]",
+                            "[--key]",
+                            "[--name]",
+                            "[--protocol]",
+                            "[--queue-endpoint]",
+                            "[--resource-group]",
+                            "[--sas-token]",
+                            "[--subscription]",
+                            "[--table-endpoint]"
+                        ]
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "Get a connection string for a storage account.",
+                    "parameters": [
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        },
+                        {
+                            "name": "--resource-group",
+                            "value": "[path.resourceGroupName]"
+                        },
+                        {
+                            "name": "--name",
+                            "value": "[path.accountName]"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "az storage account network-rule list",
+            "description": "List network rules.",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
+            "confirmation": false,
+            "help": {
+                "learnMore": {
+                    "url": "https://docs.microsoft.com/cli/azure/storage/account/network-rule#az-storage-account-network-rule-list"
+                },
+                "parameterSets": [
+                    {
+                        "parameters": [
+                            "--account-name",
+                            "[--resource-group]",
+                            "[--subscription]"
+                        ]
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "description": "List network rules.",
+                    "parameters": [
+                        {
+                            "name": "--subscription",
+                            "value": "[path.subscriptionId]"
+                        },
+                        {
+                            "name": "--account-name",
+                            "value": "[path.accountName]"
+                        },
+                        {
+                            "name": "--resource-group",
+                            "value": "[path.resourceGroupName]"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
