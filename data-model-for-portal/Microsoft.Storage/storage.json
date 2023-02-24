@@ -17,7 +17,8 @@
                 "parameterSets": [
                     {
                         "parameters": [
-                            "[--resource-group]"
+                            "[--resource-group]",
+                            "[--subscription]"
                         ]
                     }
                 ]
@@ -93,7 +94,8 @@
                         "parameters": [
                             "--account-name",
                             "[--expand-key-type]",
-                            "[--resource-group]"
+                            "[--resource-group]",
+                            "[--subscription]"
                         ]
                     }
                 ]
@@ -178,7 +180,8 @@
                     {
                         "parameters": [
                             "--account-name",
-                            "[--resource-group]"
+                            "[--resource-group]",
+                            "[--subscription]"
                         ]
                     }
                 ]
