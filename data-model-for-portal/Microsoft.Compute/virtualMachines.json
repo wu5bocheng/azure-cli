@@ -14,7 +14,7 @@
                 "learnMore": {
                     "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-show"
                 },
-                "parameterSets": [
+                "parameterSets":[
                     {
                         "parameters": [
                             "[--ids]",
@@ -22,7 +22,7 @@
                             "[--name]",
                             "[--resource-group]",
                             "[--show-details]",
-                            "[--subscription]"
+                            "[--subscription]" 
                         ]
                     }
                 ]
@@ -55,7 +55,7 @@
                 "learnMore": {
                     "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-start"
                 },
-                "parameterSets": [
+                "parameterSets":[
                     {
                         "parameters": [
                             "[--ids]",
@@ -96,7 +96,7 @@
                 "learnMore": {
                     "url": "https://docs.microsoft.com/cli/azure/vm#az-vm-stop"
                 },
-                "parameterSets": [
+                "parameterSets":[
                     {
                         "parameters": [
                             "[--ids]",
@@ -216,11 +216,11 @@
                 },
                 "parameterSets": [
                     {
-                        "parameters": [
-                            "[--resource-group]",
-                            "[--vm-name]",
-                            "[--subscription]"
-                        ]
+                       "parameters": [
+                          "[--resource-group]",
+                          "[--vm-name]",
+                          "[--subscription]"
+                       ]
                     }
                 ]
             },
