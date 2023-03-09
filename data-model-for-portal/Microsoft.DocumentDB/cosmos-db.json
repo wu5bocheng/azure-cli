@@ -226,6 +226,10 @@
                     "description": "Lists all Azure Cosmos DB collections.",
                     "parameters": [
                         {
+                            "name": "--db-name",
+                            "value": "[path.databaseRid]"
+                        },
+                        {
                             "name": "--subscription",
                             "value": "[path.subscriptionId]"
                         },
