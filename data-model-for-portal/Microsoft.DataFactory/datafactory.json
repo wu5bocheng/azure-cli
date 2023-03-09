@@ -25,7 +25,7 @@
             },
             "examples": [
                 {
-                    "description": "Factories_ListByResourceGroup",
+                    "description": "List all the data factories under a certain resource group.",
                     "parameters": [
                         {
                             "name": "--subscription",
