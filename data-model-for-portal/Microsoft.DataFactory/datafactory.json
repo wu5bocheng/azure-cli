@@ -62,7 +62,7 @@
             },
             "examples": [
                 {
-                    "description": "Factories_Get",
+                    "description": "Get detailed information of a data factory.",
                     "parameters": [
                         {
                             "name": "--subscription",
@@ -103,7 +103,7 @@
             },
             "examples": [
                 {
-                    "description": "Factories_Delete",
+                    "description": "Delete an existing data factory.",
                     "parameters": [
                         {
                             "name": "--subscription",
