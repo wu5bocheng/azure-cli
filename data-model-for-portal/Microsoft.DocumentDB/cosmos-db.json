@@ -82,7 +82,7 @@
         {
             "name": "az cosmosdb database list",
             "description": "Lists all Azure Cosmos DB databases.",
-            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listKeys",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}",
             "confirmation": false,
             "help": {
                 "learnMore": {
