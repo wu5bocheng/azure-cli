@@ -51,7 +51,7 @@
                 "parameterSets": [
                     {
                         "parameters": [
-                            "[--factory-name]",
+                            "[--name]",
                             "[--ids]",
                             "[--if-none-match]",
                             "[--resource-group]",
