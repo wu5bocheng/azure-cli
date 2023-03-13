@@ -92,7 +92,7 @@
                 "parameterSets": [
                     {
                         "parameters": [
-                            "[--factory-name]",
+                            "[--name]",
                             "[--ids]",
                             "[--resource-group]",
                             "[--subscription]",
