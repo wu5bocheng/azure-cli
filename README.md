@@ -85,6 +85,9 @@ For scripting purposes, we output certain exit codes for differing scenarios.
 |2   |Parser error; check input to command line.   |
 |3   |Missing ARM resource; used for existence check from `show` commands.   |
 
+#### Interactive mode
+If you are a new beginner of Azure CLI, we highly recommend you to try our recommendation system powered `intelligent az interactive` tool, which can provide you with a smooth demand-oriented learning experience.
+
 ### Common scenarios and use Azure CLI effectively
 
 Please check [Tips for using Azure CLI effectively](https://docs.microsoft.com/en-us/cli/azure/use-cli-effectively). It describes some common scenarios:
